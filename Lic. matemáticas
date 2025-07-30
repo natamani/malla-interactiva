@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Interactiva Pastel</title>
+
+  <style>
+    :root {
+      --pink:  #ffcee6;
+      --purple:#e6d1ff;
+      --blue:  #d4e8ff;
+      --empty: #f5f5f5;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 40px;
+      font-family: "Segoe UI", sans-serif;
+      background: var(--empty);
+    }
+
+    h1 {
+      position: absolute;
+      top: 10px;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #555;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(10, 44px);
+      grid-template-rows: repeat(10, 44px);
+      gap: 4px;
+      padding: 8px;
+      background: #ffffffaa;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px #0001;
+      backdrop-filter: blur(4px);
+    }
+
+    .cell {
+      width: 44px;
+      height: 44px;
+      background: var(--empty);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.4s, transform 0.25s;
+    }
+
+    .cell.pink   { background: var(--pink); }
+    .cell.purple { background: var(--purple); }
+    .cell.blue   { background: var(--blue); }
+
+    .cell:active { transform: scale(0.92); }
+  </style>
+</head>
+<body>
+  <h1>Malla Interactiva </h1>
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    for (let i = 0; i < 100; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.addEventListener('click', () => cycleColor(cell));
+      grid.appendChild(cell);
+    }
+
+    function cycleColor(el) {
+      if      (el.classList.contains('pink'))   { el.className = 'cell purple'; }
+      else if (el.classList.contains('purple')) { el.className = 'cell blue'; }
+      else if (el.classList.contains('blue'))   { el.className = 'cell'; }
+      else                                      { el.className = 'cell pink'; }
+    }
+  </script>
+</body>
+</html>
