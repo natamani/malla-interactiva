@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Interactiva</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #ffe4f0, #e0d6ff, #d3f2ff);
+      color: #4a4a4a;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #c084fc;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 90%;
+      background-color: #ffffffd0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 20px;
+      border: 1px solid #e3d5ff;
+    }
+
+    th {
+      background-color: #f9f0ff;
+      color: #7a42b1;
+    }
+
+    tr:hover {
+      background-color: #f0eaff;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #d8b4fe;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c084fc;
+    }
+
+    .copiar-texto {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Malla Interactiva – Lic. Matemáticas</h1>
+
+  <table>
+    <tr>
+      <th>Semestre</th>
+      <th>Asignatura</th>
+      <th>Créditos</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Fundamentos de Matemáticas</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Álgebra Básica</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Geometría Euclidiana</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Cálculo Diferencial</td>
+      <td>4</td>
+    </tr>
+    <!-- Puedes agregar más filas aquí -->
+  </table>
+
+  <div class="copiar-texto" id="textoCopiar">
+    Esta es una malla interactiva de ejemplo para la carrera de Licenciatura en Matemáticas.
+  </div>
+
+  <button onclick="copiarTexto()">Copiar Texto</button>
+
+  <script>
+    function copiarTexto() {
+      const texto = document.getElementById("textoCopiar").innerText;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Texto copiado al portapapeles ✔");
+      });
+    }
+  </script>
+</body>
+</html>
